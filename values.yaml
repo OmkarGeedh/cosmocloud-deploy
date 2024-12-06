@@ -1,0 +1,16 @@
+backend:
+  image: shreybatra/sample-backend
+  env:
+    REDIS_URI: redis://redis-svc:6379
+  servicePort: 8000
+
+frontend:
+  image: shreybatra/sample-frontend
+  env:
+    BACKEND_URL: http://backend-svc:8000
+  servicePort: 5173
+  nodePort: 31000
+
+redis:
+  image: redis
+  servicePort: 6379
